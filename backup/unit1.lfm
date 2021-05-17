@@ -1,0 +1,46 @@
+object Form1: TForm1
+  Left = 1060
+  Height = 300
+  Top = 664
+  Width = 400
+  Caption = 'Main menu'
+  ClientHeight = 300
+  ClientWidth = 400
+  DesignTimePPI = 120
+  LCLVersion = '2.0.10.0'
+  object Label1: TLabel
+    Left = 168
+    Height = 20
+    Top = 32
+    Width = 42
+    Caption = 'Меню'
+    ParentColor = False
+  end
+  object Button1: TButton
+    Left = 144
+    Height = 31
+    Top = 72
+    Width = 94
+    Caption = 'Начать игру'
+    OnClick = Button1Click
+    TabOrder = 0
+  end
+  object Button2: TButton
+    Left = 144
+    Height = 31
+    Top = 120
+    Width = 94
+    Caption = 'Настройки'
+    OnClick = Button2Click
+    TabOrder = 1
+  end
+  object Button3: TButton
+    Left = 144
+    Height = 31
+    Top = 168
+    Width = 94
+    Caption = 'Выход'
+    OnClick = Button3Click
+    TabOrder = 2
+  end
+end
