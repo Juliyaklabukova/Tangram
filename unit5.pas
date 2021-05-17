@@ -22,6 +22,30 @@ type
     Image8: TImage;
     Timer1: TTimer;
     procedure Image1Click(Sender: TObject);
+    procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image1MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
+      );
+    procedure Image1MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image3MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image3MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
+      );
+    procedure Image3MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image4MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image4MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
+      );
+    procedure Image4MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image5MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image5MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
+      );
+    procedure Image5MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure image6Click(Sender: TObject);
     procedure image6MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -30,9 +54,27 @@ type
     procedure image6MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image7Click(Sender: TObject);
+    procedure Image7MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image7MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
+      );
+    procedure Image7MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image8MouseDown(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
+    procedure Image8MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
+      );
+    procedure Image8MouseUp(Sender: TObject; Button: TMouseButton;
+      Shift: TShiftState; X, Y: Integer);
     procedure Timer1Timer(Sender: TObject);
   private
-
+    znachenie:boolean;
+    znachenie4:boolean;
+    znachenie7:boolean;
+    znachenie8:boolean;
+    znachenie3:boolean;
+    znachenie1:boolean;
+    znachenie5:boolean;
   public
 
   end;
@@ -52,18 +94,118 @@ begin
 
 end;
 
+procedure TForm4.Image1MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ if Button=mbLeft then begin
+  (Sender as TImage).BringToFront; //процедура выдвигает компонент, в котором произошло событие, на передний план
+  znachenie1:=true;
+  end
+  else znachenie1:=false;
+end;
+
+procedure TForm4.Image1MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+  if znachenie1 then
+  begin
+     (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2); //вычитаем разделенную на 2 высоту и ширину, чтобы перетаскивалось по цкетру фигурки
+     (Sender as TImage).Top:=(Sender as TImage).Top+Y - ((Sender as TImage).Height div 2);
+    end
+end;
+
+procedure TForm4.Image1MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ znachenie1:=false;
+end;
+
+procedure TForm4.Image3MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ if Button=mbLeft then begin
+  (Sender as TImage).BringToFront; //процедура выдвигает компонент, в котором произошло событие, на передний план
+  znachenie3:=true;
+  end
+  else znachenie3:=false;
+end;
+
+procedure TForm4.Image3MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+ if znachenie3 then
+  begin
+     (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2); //вычитаем разделенную на 2 высоту и ширину, чтобы перетаскивалось по цкетру фигурки
+     (Sender as TImage).Top:=(Sender as TImage).Top+Y - ((Sender as TImage).Height div 2);
+    end
+end;
+
+procedure TForm4.Image3MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ znachenie3:=false;
+end;
+
+procedure TForm4.Image4MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ if Button=mbLeft then begin
+  (Sender as TImage).BringToFront;
+  znachenie4:=true;
+ end
+ else znachenie4:=false;
+end;
+
+procedure TForm4.Image4MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+ if znachenie4 then
+ begin
+    (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2); //вычитаем разделенную на 2 высоту и ширину, чтобы перетаскивалось по цкетру фигурки
+    (Sender as TImage).Top:=(Sender as TImage).Top+Y - ((Sender as TImage).Height div 2);
+   end
+end;
+
+procedure TForm4.Image4MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+    znachenie4:=false;
+  end;
+
+procedure TForm4.Image5MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ if Button=mbLeft then begin
+  (Sender as TImage).BringToFront; //процедура выдвигает компонент, в котором произошло событие, на передний план
+  znachenie5:=true;
+  end
+  else znachenie5:=false;
+end;
+
+procedure TForm4.Image5MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+ if znachenie5 then
+ begin
+    (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2); //вычитаем разделенную на 2 высоту и ширину, чтобы перетаскивалось по цкетру фигурки
+    (Sender as TImage).Top:=(Sender as TImage).Top+Y - ((Sender as TImage).Height div 2);
+   end
+end;
+
+procedure TForm4.Image5MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ znachenie5:=false;
+end;
+
 procedure TForm4.image6Click(Sender: TObject);
 begin
 
 end;
 procedure TForm4.image6MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
-var x0, y0:integer; //x0, y0 координаты начального положения перемещаемой картинки
-  znachenie:boolean; //znachenie помогает отличить перемещение мыши от попытки сдвинуть картинку(true-перемещение началось)
 begin
   if Button=mbLeft then begin
-  x0:=X;
-  y0:=Y;
   (Sender as TImage).BringToFront; //процедура выдвигает компонент, в котором произошло событие, на передний план
   znachenie:=true;
   end
@@ -72,19 +214,17 @@ begin
 
 procedure TForm4.image6MouseMove(Sender: TObject; Shift: TShiftState; X,
   Y: Integer);
-var znachenie:boolean;
-  x0, y0:integer;
 begin
- if znachenie then with TImage(Sender) do
+ if znachenie then
 begin
-  left:=left+x-x0;
-  top:=top+y-y0
+   (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2);
+   (Sender as TImage).Top:=(Sender as TImage).Top+Y - ((Sender as TImage).Height div 2);
   end
 end;
 
 procedure TForm4.image6MouseUp(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
-var znachenie:boolean;
+
 begin
   znachenie:=false;
 end;
@@ -92,6 +232,58 @@ end;
 procedure TForm4.Image7Click(Sender: TObject);
 begin
 
+end;
+
+procedure TForm4.Image7MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ if Button=mbLeft then begin
+   (Sender as TImage).BringToFront;
+   znachenie7:=true;
+  end
+  else znachenie7:=false;
+end;
+
+procedure TForm4.Image7MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+ if znachenie7 then
+  begin
+     (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2); //вычитаем разделенную на 2 высоту и ширину, чтобы перетаскивалось по цкетру фигурки
+     (Sender as TImage).Top:=(Sender as TImage).Top+Y - ((Sender as TImage).Height div 2);
+    end
+end;
+
+procedure TForm4.Image7MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ znachenie7:=false;
+end;
+
+procedure TForm4.Image8MouseDown(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+  if Button=mbLeft then begin
+  (Sender as TImage).BringToFront;
+  znachenie8:=true;
+ end
+ else znachenie8:=false;
+end;
+
+procedure TForm4.Image8MouseMove(Sender: TObject; Shift: TShiftState; X,
+  Y: Integer);
+begin
+ if znachenie8 then
+begin
+   (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2);
+   (Sender as TImage).Top:=(Sender as TImage).Top+Y - ((Sender as TImage).Height div 2);
+  end
+end;
+
+procedure TForm4.Image8MouseUp(Sender: TObject; Button: TMouseButton;
+  Shift: TShiftState; X, Y: Integer);
+begin
+ znachenie8:=false;
 end;
 
 procedure TForm4.Timer1Timer(Sender: TObject);

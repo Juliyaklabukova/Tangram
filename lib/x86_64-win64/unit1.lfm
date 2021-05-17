@@ -1,11 +1,11 @@
 object Form1: TForm1
-  Left = 482
+  Left = 479
   Height = 420
-  Top = 264
-  Width = 639
+  Top = 238
+  Width = 667
   Caption = 'Main menu'
   ClientHeight = 420
-  ClientWidth = 639
+  ClientWidth = 667
   DesignTimePPI = 120
   LCLVersion = '2.0.10.0'
   object Label1: TLabel
