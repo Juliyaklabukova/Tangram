@@ -5,13 +5,15 @@ unit Unit5;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, ExtCtrls, StdCtrls;
 
 type
 
   { TForm4 }
 
   TForm4 = class(TForm)
+    Button1: TButton;
+    Button2: TButton;
     Image1: TImage;
     Image2: TImage;
     Image3: TImage;
@@ -21,6 +23,7 @@ type
     Image7: TImage;
     Image8: TImage;
     Timer1: TTimer;
+    procedure Button1Click(Sender: TObject);
     procedure Image1Click(Sender: TObject);
     procedure Image1MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
@@ -34,6 +37,7 @@ type
       );
     procedure Image3MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Image4Click(Sender: TObject);
     procedure Image4MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image4MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
@@ -94,6 +98,12 @@ begin
 
 end;
 
+procedure TForm4.Button1Click(Sender: TObject);
+begin
+
+end;
+
+
 procedure TForm4.Image1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -146,6 +156,11 @@ begin
  znachenie3:=false;
 end;
 
+procedure TForm4.Image4Click(Sender: TObject);
+begin
+
+end;
+
 procedure TForm4.Image4MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
@@ -161,7 +176,7 @@ procedure TForm4.Image4MouseMove(Sender: TObject; Shift: TShiftState; X,
 begin
  if znachenie4 then
  begin
-    (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2); //вычитаем разделенную на 2 высоту и ширину, чтобы перетаскивалось по цкетру фигурки
+    (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2); //вычитаем разделенную на 2 высоту и ширину, чтобы перетаскивалось по цеyтру фигурки
     (Sender as TImage).Top:=(Sender as TImage).Top+Y - ((Sender as TImage).Height div 2);
    end
 end;
@@ -249,7 +264,7 @@ procedure TForm4.Image7MouseMove(Sender: TObject; Shift: TShiftState; X,
 begin
  if znachenie7 then
   begin
-     (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2); //вычитаем разделенную на 2 высоту и ширину, чтобы перетаскивалось по цкетру фигурки
+     (Sender as TImage).Left:=(Sender as TImage).Left+X - ((Sender as TImage).Width div 2); //вычитаем разделенную на 2 высоту и ширину, чтобы перетаскивалось по цвету фигурки
      (Sender as TImage).Top:=(Sender as TImage).Top+Y - ((Sender as TImage).Height div 2);
     end
 end;
@@ -306,10 +321,25 @@ begin
 
 end;
 
-procedure proverka_mesta();
+procedure prov();
+begin
+ if image6.Left=[27..37]; image6.top=[-5..5]; then
+  begin  image6.Left=32; image6.top=[-5;5]; form5.Show; form4.Hide;
+ end.
+
+{ procedure proverka_mesta();
 var i:integer;
  figurki:array[1..7,1..2] of integer;
   begin
+
+   {znachenie:=false;
+   znachenie7:=false;
+   znachenie8:=false;
+   znachenie5:=false;
+   znachenie4:=false;
+   znachenie3:=false;
+   znachenie1:=false; }
+
     figurki[1,1]:= 200; figurki[1,2]:=536;
     figurki[2,1]:= 304; figurki[2,2]:=456;
     figurki[3,1]:= 184; figurki[3,2]:=0;
@@ -322,14 +352,21 @@ if ((form4.image6.left>figurki[5,1]-5) and (form4.image6.left<figurki[5,1]+5)) a
 begin
   form4.image6.left:=figurki[5,1];
   form4.image6.top:=figurki[5,2];
+  form5.show; form4.hide;
   end;
 
-end;
+end; }
 
 procedure TForm4.Timer1Timer(Sender: TObject);
 begin
+ procedure prov();
+begin
+ if image6.Left=[27..37]; image6.top=[-5..5]; then
+  begin  image6.Left=32; image6.top=[-5;5]; form5.Show; form4.Hide;
+ end.
+ {form4.button1.caption:=inttostr(image6.left);
   proverka_mesta();
-end;
+end;}
 
 end.
 
