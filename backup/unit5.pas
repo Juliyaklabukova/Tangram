@@ -12,8 +12,6 @@ type
   { TForm4 }
 
   TForm4 = class(TForm)
-    Button1: TButton;
-    Button2: TButton;
     Image1: TImage;
     Image2: TImage;
     Image3: TImage;
@@ -31,6 +29,7 @@ type
       );
     procedure Image1MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Image2Click(Sender: TObject);
     procedure Image3MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image3MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
@@ -64,6 +63,7 @@ type
       );
     procedure Image7MouseUp(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
+    procedure Image8Click(Sender: TObject);
     procedure Image8MouseDown(Sender: TObject; Button: TMouseButton;
       Shift: TShiftState; X, Y: Integer);
     procedure Image8MouseMove(Sender: TObject; Shift: TShiftState; X, Y: Integer
@@ -85,8 +85,10 @@ type
 
 var
   Form4: TForm4;
+  d:array[1..8] of boolean;
 
 implementation
+uses unit1;
 
 {$R *.lfm}
 
@@ -107,6 +109,7 @@ end;
 procedure TForm4.Image1MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
+ if d[1]<>false then
  if Button=mbLeft then begin
   (Sender as TImage).BringToFront; //процедура выдвигает компонент, в котором произошло событие, на передний план
   znachenie1:=true;
@@ -130,9 +133,15 @@ begin
  znachenie1:=false;
 end;
 
+procedure TForm4.Image2Click(Sender: TObject);
+begin
+
+end;
+
 procedure TForm4.Image3MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
+  if d[3]<>false then
  if Button=mbLeft then begin
   (Sender as TImage).BringToFront; //процедура выдвигает компонент, в котором произошло событие, на передний план
   znachenie3:=true;
@@ -164,6 +173,7 @@ end;
 procedure TForm4.Image4MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
+  if d[4]<>false then
  if Button=mbLeft then begin
   (Sender as TImage).BringToFront;
   znachenie4:=true;
@@ -190,6 +200,7 @@ begin
 procedure TForm4.Image5MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
+  if d[5]<>false then
  if Button=mbLeft then begin
   (Sender as TImage).BringToFront; //процедура выдвигает компонент, в котором произошло событие, на передний план
   znachenie5:=true;
@@ -220,6 +231,7 @@ end;
 procedure TForm4.image6MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
+ if d[6]<>false then
   if Button=mbLeft then begin
   (Sender as TImage).BringToFront; //процедура выдвигает компонент, в котором произошло событие, на передний план
   znachenie:=true;
@@ -252,6 +264,7 @@ end;
 procedure TForm4.Image7MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
+ if d[7]<>false then
  if Button=mbLeft then begin
    (Sender as TImage).BringToFront;
    znachenie7:=true;
@@ -275,9 +288,15 @@ begin
  znachenie7:=false;
 end;
 
+procedure TForm4.Image8Click(Sender: TObject);
+begin
+
+end;
+
 procedure TForm4.Image8MouseDown(Sender: TObject; Button: TMouseButton;
   Shift: TShiftState; X, Y: Integer);
 begin
+  if d[8]<>false then
   if Button=mbLeft then begin
   (Sender as TImage).BringToFront;
   znachenie8:=true;
@@ -302,11 +321,73 @@ begin
 end;
 
 procedure TForm4.Timer1Timer(Sender: TObject);
+var i,fr:integer;
+ figurki:array[1..7,1..2] of integer;
+  begin
+   if d[7]=false then
+    figurki[1,1]:= 200; figurki[1,2]:=536;
+    figurki[2,1]:= 304; figurki[2,2]:=456;
+    figurki[3,1]:= 184; figurki[3,2]:=0;
+    figurki[4,1]:= -32; figurki[4,2]:=440;
+    figurki[5,1]:= 32; figurki[5,2]:=0;
+    figurki[6,1]:= 72; figurki[6,2]:=288;
+    figurki[7,1]:= 88; figurki[7,2]:=552;
+    fr:=10;
+if ((form4.image6.left>figurki[5,1]-fr) and (form4.image6.left<figurki[5,1]+fr)) and ((form4.image6.top>figurki[5,2]-fr) and (form4.image6.top<figurki[5,2]+fr)) then
 begin
+ form4.image6.left:=figurki[5,1];
+ form4.image6.top:=figurki[5,2];
+ d[6]:=false;
+ end;
+ if ((form4.image7.left>figurki[6,1]-fr) and (form4.image7.left<figurki[6,1]+fr)) and ((form4.image7.top>figurki[6,2]-fr) and (form4.image7.top<figurki[6,2]+fr)) then
+begin
+ form4.image7.left:=figurki[6,1];
+ form4.image7.top:=figurki[6,2];
+ d[7]:=false;
+ end;
+ if ((form4.image8.left>figurki[7,1]-fr) and (form4.image8.left<figurki[7,1]+fr)) and ((form4.image8.top>figurki[7,2]-fr) and (form4.image8.top<figurki[7,2]+fr)) then
+begin
+ form4.image8.left:=figurki[7,1];
+ form4.image8.top:=figurki[7,2];
+ d[8]:=false;
+ end;
+ if ((form4.image1.left>figurki[1,1]-fr) and (form4.image1.left<figurki[1,1]+fr)) and ((form4.image1.top>figurki[1,2]-fr) and (form4.image1.top<figurki[1,2]+fr)) then
+begin
+ form4.image1.left:=figurki[1,1];
+ form4.image1.top:=figurki[1,2];
+ d[1]:=false;
+ end;
+ if ((form4.image3.left>figurki[2,1]-fr) and (form4.image3.left<figurki[2,1]+fr)) and ((form4.image3.top>figurki[2,2]-fr) and (form4.image3.top<figurki[2,2]+fr)) then
+begin
+ form4.image3.left:=figurki[2,1];
+ form4.image3.top:=figurki[2,2];
+ d[3]:=false;
+ end;
+ if ((form4.image4.left>figurki[3,1]-fr) and (form4.image4.left<figurki[3,1]+fr)) and ((form4.image4.top>figurki[3,2]-fr) and (form4.image4.top<figurki[3,2]+fr)) then
+begin
+ form4.image4.left:=figurki[3,1];
+ form4.image4.top:=figurki[3,2];
+ d[4]:=false;
+ end;
+ if ((form4.image5.left>figurki[4,1]-fr) and (form4.image5.left<figurki[4,1]+fr)) and ((form4.image5.top>figurki[4,2]-fr) and (form4.image5.top<figurki[4,2]+fr)) then
+begin
+ form4.image5.left:=figurki[4,1];
+ form4.image5.top:=figurki[4,2];
+ d[5]:=false;
+ end;
+if (d[1]=false) and (d[3]=false) and  (d[4]=false) and (d[5]=false) and (d[6]=false) and (d[7]=false) and (d[8]=false) then form1.show;
 
+
+{procedure prov();
+begin
+if image6.Left=976; image6.top=0; then
+ d[6]:=false;
+end.}
+{form4.button1.caption:=inttostr(image6.left);
+ proverka_mesta();}
 end;
 
-end.
+
 
 
    {200 536
@@ -316,30 +397,18 @@ end.
     32 0
     72 288
     88 552  }
-procedure TForm4.Image7Click(Sender: TObject);
-begin
 
-end;
 
-procedure prov();
+{procedure prov();
 begin
- if image6.Left=[27..37]; image6.top=[-5..5]; then
-  begin  image6.Left=32; image6.top=[-5;5]; form5.Show; form4.Hide;
- end.
+{ if (form4.image6.Left=[27..37]) and (image6.top=[-5..5]) then
+  begin  image6.Left=32; image6.top=[-5;5]; form5.Show; form4.Hide;}
+ end.  }
 
 { procedure proverka_mesta();
 var i:integer;
  figurki:array[1..7,1..2] of integer;
   begin
-
-   {znachenie:=false;
-   znachenie7:=false;
-   znachenie8:=false;
-   znachenie5:=false;
-   znachenie4:=false;
-   znachenie3:=false;
-   znachenie1:=false; }
-
     figurki[1,1]:= 200; figurki[1,2]:=536;
     figurki[2,1]:= 304; figurki[2,2]:=456;
     figurki[3,1]:= 184; figurki[3,2]:=0;
@@ -352,16 +421,12 @@ if ((form4.image6.left>figurki[5,1]-5) and (form4.image6.left<figurki[5,1]+5)) a
 begin
   form4.image6.left:=figurki[5,1];
   form4.image6.top:=figurki[5,2];
-  form5.show; form4.hide;
-  end;
+  //form5.show; form4.hide;
+  end;  }
 
+end.
 end;
 
-procedure TForm4.Timer1Timer(Sender: TObject);
-begin
- form4.button1.caption:=inttostr(image6.left);
-  proverka_mesta();
-end;}
 
 end.
 

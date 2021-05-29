@@ -13,7 +13,6 @@ type
 
   TForm1 = class(TForm)
     Button1: TButton;
-    Button2: TButton;
     Button3: TButton;
     Label1: TLabel;
     procedure Button1Click(Sender: TObject);
@@ -37,11 +36,6 @@ implementation
 procedure TForm1.Button1Click(Sender: TObject);
 begin
   Form2.Show; Form1.hide;
-end;
-
-procedure TForm1.Button2Click(Sender: TObject);
-begin
-Form3.show; Form1.hide;
 end;
 
 procedure TForm1.Button3Click(Sender: TObject);
