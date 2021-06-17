@@ -1,52 +1,55 @@
 object Form2: TForm2
-  Left = 1313
-  Height = 430
-  Top = 488
-  Width = 664
+  Left = 1193
+  Height = 500
+  Top = 328
+  Width = 700
   Caption = 'Start play'
-  ClientHeight = 430
-  ClientWidth = 664
+  ClientHeight = 500
+  ClientWidth = 700
+  Color = 8421631
   DesignTimePPI = 120
   OnCreate = FormCreate
   LCLVersion = '2.0.10.0'
   object Button1: TButton
-    Left = 104
-    Height = 31
-    Top = 184
-    Width = 94
+    Left = 40
+    Height = 51
+    Top = 152
+    Width = 174
     Caption = '1 уровень'
     OnClick = Button1Click
     TabOrder = 0
   end
   object Button2: TButton
-    Left = 232
-    Height = 31
-    Top = 184
-    Width = 94
+    Left = 264
+    Height = 51
+    Top = 152
+    Width = 174
     Caption = '2 уровень'
+    OnClick = Button2Click
     TabOrder = 1
   end
   object Button3: TButton
-    Left = 360
-    Height = 31
-    Top = 184
-    Width = 94
+    Left = 488
+    Height = 51
+    Top = 152
+    Width = 174
     Caption = '3 уровень'
+    OnClick = Button3Click
     TabOrder = 2
   end
   object Button4: TButton
-    Left = 208
-    Height = 31
-    Top = 280
-    Width = 136
+    Left = 264
+    Height = 51
+    Top = 312
+    Width = 174
     Caption = 'Главное меню'
     OnClick = Button4Click
     TabOrder = 3
   end
   object Label1: TLabel
-    Left = 240
+    Left = 300
     Height = 20
-    Top = 112
+    Top = 60
     Width = 84
     Caption = 'Начать игру'
     ParentColor = False

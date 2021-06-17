@@ -5,7 +5,7 @@ unit Unit1;
 interface
 
 uses
-  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, unit2, unit3;
+  Classes, SysUtils, Forms, Controls, Graphics, Dialogs, StdCtrls, unit2, Unit3;
 
 type
 
@@ -16,7 +16,6 @@ type
     Button3: TButton;
     Label1: TLabel;
     procedure Button1Click(Sender: TObject);
-    procedure Button2Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
   private
 
